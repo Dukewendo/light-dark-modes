@@ -28,6 +28,7 @@ export default function App() {
     setCurrentNoteId(newNote.id);
   }
 
+  //Pushes most recent modified note to top
   function updateNote(text) {
     setNotes((oldNotes) => {
       const newArray = [];

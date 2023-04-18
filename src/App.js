@@ -28,6 +28,11 @@ export default function App() {
     setCurrentNoteId(newNote.id);
   }
 
+  function deleteNote(event, noteId){
+event.stopPropagation()
+setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId))
+  }
+
   //Pushes most recent modified note to top
   function updateNote(text) {
     setNotes((oldNotes) => {
@@ -62,6 +67,7 @@ export default function App() {
             currentNote={findCurrentNote()}
             setCurrentNoteId={setCurrentNoteId}
             newNote={createNewNote}
+            deleteNote={deleteNote}
           />
           {currentNoteId && notes.length > 0 && (
             <Editor currentNote={findCurrentNote()} updateNote={updateNote} />
